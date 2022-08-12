@@ -1,0 +1,26 @@
+    public class Solution
+    {
+        public int[] TwoSum(int[] nums, int target)
+        {
+        int[] output_array = new int[2];
+        bool bln_stop = false;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                int[] new_nums = nums;
+                for (int j = i+1; j < new_nums.Length; j++)
+                {
+                    if (nums[i] + new_nums[j] == target)
+                    {
+                    output_array[0]=i;
+                    output_array[1]=j; 
+                    bln_stop = true; 
+                    break; 
+                    }
+                }
+                if (bln_stop) {break;}
+
+            }
+            return output_array;
+
+        }
+    }
