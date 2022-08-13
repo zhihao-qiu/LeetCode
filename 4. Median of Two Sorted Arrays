@@ -1,0 +1,19 @@
+public class Solution {
+    public double FindMedianSortedArrays(int[] nums1, int[] nums2) {
+        int m = nums1.Length, n = nums2.Length;
+        
+        int[] new_nums = new int[m+n];
+        
+        Array.Copy(nums1, new_nums, m);
+        Array.Copy(nums2, 0, new_nums, m, n);        
+        Array.Sort(new_nums);
+        
+        double med;
+        if ((m+n) % 2 == 1) {
+            med = new_nums[(m+n)/2];
+        }else {
+            med = (new_nums[(m+n)/2]+new_nums[(m+n)/2-1])/2.0;
+        }
+        return med;
+    }
+}
