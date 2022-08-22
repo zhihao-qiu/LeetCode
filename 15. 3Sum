@@ -1,0 +1,27 @@
+public class Solution {
+    public IList<IList<int>> ThreeSum(int[] nums) {
+
+        IList<IList<int>> myList = new List<IList<int>>();
+        Array.Sort(nums);
+        var pre_i = 0;
+        for (int i = 0; i < nums.Length - 2; i++){
+            if (i != 0 && pre_i == nums[i]){
+                continue;
+            }
+            pre_i = nums[i];
+            
+            var pre_j=0;
+            for (int j = i + 1; j < nums.Length - 1; j++){
+                if (j != i + 1 && pre_j == nums[j]) {
+                    continue;
+                }
+                pre_j = nums[j];
+                var exist = Array.BinarySearch<int>(nums, j + 1, nums.Length - j - 1, (0 - nums[i] - nums[j]));
+                if (exist > 0) {
+                    myList.Add(new int[]{nums[i],nums[j],(0 - nums[i] - nums[j])});                            
+                }
+            }
+        }
+        return myList;
+    }
+}
