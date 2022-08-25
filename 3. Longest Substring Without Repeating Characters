@@ -1,0 +1,21 @@
+public class Solution {
+    public int LengthOfLongestSubstring(string s) {
+
+        int cnt = 0;
+        int answer = 0;
+
+            while (cnt < s.Length) {
+                var dict = new HashSet<string>();
+                for (int i = cnt; i < s.Length; i++) {
+                    if (!dict.Add(s[i].ToString())) {
+                        break;
+                    }
+                }
+                cnt++;
+                answer = Math.Max(answer, dict.Count);
+            }            
+
+        return answer;
+       
+    }
+}
