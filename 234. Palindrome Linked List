@@ -1,0 +1,46 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public bool IsPalindrome(ListNode head) {
+        List<int> toCheck = new List<int>();
+        int mid_id = 0;
+        bool blnFlag = true;
+        toCheck = FillList(head);
+        mid_id = toCheck.Count / 2; 
+
+        if (toCheck.Count % 2 == 0){
+            for (var i = 0; i <mid_id; i++) {
+                if (toCheck[mid_id-1-i]!=toCheck[mid_id+i]) {
+                    blnFlag = false;
+                    break;
+                }
+            }
+        }else{
+            for (var i = 0; i < mid_id+1; i++) {
+                if (toCheck[mid_id+i]!=toCheck[mid_id-i]){
+                    blnFlag = false;
+                    break;
+                }
+            }
+        }
+        return blnFlag;
+    }
+    
+    private List<int> FillList(ListNode head){
+        List<int> toFillList = new List<int>();
+        while (head!=null) {
+            toFillList.Add(head.val);
+            head=head.next;
+        }
+        return toFillList;
+    }
+}
