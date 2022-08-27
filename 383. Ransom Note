@@ -1,0 +1,18 @@
+public class Solution {
+    public bool CanConstruct(string ransomNote, string magazine) {
+        bool flgReturn = true;
+        List<char> magChar = new List<char>();
+        foreach (char cm in magazine) {
+            magChar.Add(cm);
+        }
+        foreach (char cr in ransomNote) {
+            if (magChar.Contains(cr)) {
+                magChar.Remove(cr);
+            }else{
+                flgReturn = false;
+            }
+        }
+        
+        return flgReturn;
+    }
+}
