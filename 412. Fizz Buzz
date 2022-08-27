@@ -1,0 +1,17 @@
+public class Solution {
+    public IList<string> FizzBuzz(int n) {
+        IList<string> lstFizzBuzz = new List<string>();
+        for (int i = 1; i < n+1; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                lstFizzBuzz.Add ("FizzBuzz");
+            } else if (i % 3 == 0) {
+                lstFizzBuzz.Add ("Fizz");
+            } else if (i % 5 == 0) {
+                lstFizzBuzz.Add ("Buzz");
+            } else {
+                lstFizzBuzz.Add (i.ToString());
+            }
+        }
+        return lstFizzBuzz;
+    }
+}
