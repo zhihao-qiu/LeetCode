@@ -1,0 +1,16 @@
+public class Solution {
+    public int NumberOfSteps(int num) {
+        int cnt = 0;
+        while (num != 0 ) {
+            if (num % 2 == 0) {
+                //if it's even, then divide by 2
+                num = num / 2;
+            } else {
+                //if it's odd, then subtract 1
+                num-=1;
+            }
+            cnt++;
+        }
+        return cnt;
+    }
+}
