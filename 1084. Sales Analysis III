@@ -1,0 +1,3 @@
+    select Product.product_id,Product.product_name from Product, Sales where Product.product_id = Sales.product_id 
+    group by Product.product_id, Product.product_name having Product.product_id not in
+        (select Sales.product_id from Sales where Sales.sale_date not between '2019-01-01' and '2019-03-31')
