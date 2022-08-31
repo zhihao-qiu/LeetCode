@@ -1,0 +1,13 @@
+With Ride as(
+select user_id, sum(distance) as distance
+from Rides
+group by user_id
+)
+
+select Users.name
+, isnull(Ride.distance,0) as travelled_distance 
+from Users
+left join Ride
+on Users.id = Ride.user_id
+order by travelled_distance desc, users.name asc
+
