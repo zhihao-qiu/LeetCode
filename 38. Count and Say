@@ -1,0 +1,31 @@
+public class Solution {
+    public string CountAndSay(int n) {
+        string strResult = "1";
+        if (n>1) {
+            for (int i = 0; i < n-1; i++){
+                strResult = goProcess(strResult);
+            }
+        }
+        return strResult;
+    }
+    
+    private string goProcess(string x){
+        string newString = "";
+        string currentString = "";
+        int cnt = 0;
+        for (int i = 0; i < x.Length; i++) {
+            if (currentString == ""){
+                currentString = x[i].ToString();
+                cnt++;
+            } else if (currentString != x[i].ToString()){
+                newString += cnt.ToString() + currentString.ToString();
+                currentString = x[i].ToString();
+                cnt = 1;
+            } else {
+                cnt++;
+            }
+        }
+        newString += cnt.ToString() + currentString.ToString();
+        return newString;
+    }
+}
