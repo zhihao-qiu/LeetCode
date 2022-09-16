@@ -1,0 +1,5 @@
+/* Write your T-SQL query statement below */
+SELECT individual.name as Employee 
+FROM Employee individual, Employee manager
+WHERE individual.managerId = manager.id
+AND individual.salary > manager.salary
