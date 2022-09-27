@@ -1,0 +1,39 @@
+public class Solution {
+    public int TitleToNumber(string columnTitle) {
+        Dictionary<char, int> colNumber = new Dictionary<char, int>();
+        colNumber.Add('A',1);
+        colNumber.Add('B',2);
+        colNumber.Add('C',3);
+        colNumber.Add('D',4);
+        colNumber.Add('E',5);
+        colNumber.Add('F',6);
+        colNumber.Add('G',7);
+        colNumber.Add('H',8);
+        colNumber.Add('I',9);
+        colNumber.Add('J',10);
+        colNumber.Add('K',11);
+        colNumber.Add('L',12);
+        colNumber.Add('M',13);
+        colNumber.Add('N',14);
+        colNumber.Add('O',15);
+        colNumber.Add('P',16);
+        colNumber.Add('Q',17);
+        colNumber.Add('R',18);
+        colNumber.Add('S',19);
+        colNumber.Add('T',20);
+        colNumber.Add('U',21);
+        colNumber.Add('V',22);
+        colNumber.Add('W',23);
+        colNumber.Add('X',24);
+        colNumber.Add('Y',25);
+        colNumber.Add('Z',26);
+        
+        double rtnVal = 0;
+        
+        for (int i = columnTitle.Length-1; i >= 0 ; i--) {
+            rtnVal+= colNumber[columnTitle[i]] * Math.Pow(26, columnTitle.Length-1-i);
+        }
+        return Convert.ToInt32(rtnVal);
+        
+    }
+}
